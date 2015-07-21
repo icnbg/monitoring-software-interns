@@ -1,0 +1,28 @@
+.x_panel {
+    display: inline-block;
+    margin: 0;
+    margin-top: 15vh;
+    padding: 0;
+    border: none;
+}
+
+.x_panel .x_title h2 {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.x_panel .x_content .form-group {
+    margin-top: 2vh;
+    padding-left: 5vh;
+}
+
+.x_panel .x_content .form-group .my-form-group {
+    display: inline-block;
+    margin-right: 10vh;
+    margin-bottom: 5vh;
+}
+
+.x_panel .x_content .form-group .code-text {
+    width: 80%;
+    height: 30vh;
+}
