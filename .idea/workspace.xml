@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2557cf61-98c1-4267-a212-4cbf06d21e67" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/ui/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/ui/js/bootstrap.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/css/custom.css" afterPath="$PROJECT_DIR$/ui/css/custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/js/custom.js" afterPath="$PROJECT_DIR$/ui/js/custom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/fonts/css/font-awesome.css" afterPath="$PROJECT_DIR$/ui/fonts/css/font-awesome.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/fonts/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/ui/fonts/css/font-awesome.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/fonts/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/ui/fonts/fonts/fontawesome-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/ui/fonts/glyphicons-halflings-regular.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/index.html" afterPath="$PROJECT_DIR$/ui/index.html" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\test\monitoring-software-interns\ui\css\codeGenerator\code-generator-form.css" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/codeGenerator.html" afterPath="$PROJECT_DIR$/ui/codeGenerator.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/js/jquery.min.js" afterPath="$PROJECT_DIR$/ui/js/jquery.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/login.html" afterPath="$PROJECT_DIR$/ui/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/js/nprogress.js" afterPath="$PROJECT_DIR$/ui/js/nprogress.js" />
     </list>
     <ignored path="monitoring-software-interns.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28299645">
-              <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+            <state vertical-scroll-proportion="-8.5">
+              <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -59,10 +49,50 @@
       <file leaf-file-name="codeGenerator.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ui/codeGenerator.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.7384615">
-              <caret line="159" column="26" selection-start-line="159" selection-start-column="26" selection-end-line="159" selection-end-column="26" />
+            <state vertical-scroll-proportion="-42.984615">
+              <caret line="208" column="78" selection-start-line="208" selection-start-column="78" selection-end-line="208" selection-end-column="78" />
               <folding>
                 <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="codeGenerator.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ui/codeGenerator.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.30083233">
+              <caret line="195" column="0" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
+              <folding>
+                <marker date="1437479215580" expanded="true" signature="9868:9946" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="10015:11512" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="10065:11010" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="10121:10889" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="10259:10528" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="10303:10356" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="10303:10489" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="10580:10854" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="10624:10677" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="10624:10815" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="11113:11483" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="11199:11452" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="11620:11644" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="11620:11937" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="11647:11878" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="11686:11859" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="12095:12301" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="12189:12199" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="13089:13178" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="13855:15091" placeholder="..." />
+                <marker date="1437479215580" expanded="true" signature="13891:15091" placeholder="{...}" />
+                <marker date="1437479215580" expanded="true" signature="13901:13966" placeholder="//..." />
+                <marker date="1437479215580" expanded="true" signature="14378:14414" placeholder="[...]" />
+                <marker date="1437479215580" expanded="true" signature="14416:15091" placeholder="{...}" />
+                <marker date="1437479215580" expanded="true" signature="14438:14874" placeholder="{&quot;shadowSize&quot;: 2...}" />
+                <marker date="1437479215580" expanded="true" signature="14463:14546" placeholder="{&quot;show&quot;: false...}" />
+                <marker date="1437479215580" expanded="true" signature="14573:14722" placeholder="{&quot;show&quot;: true...}" />
+                <marker date="1437479215580" expanded="true" signature="14748:14829" placeholder="{&quot;radius&quot;: 0...}" />
+                <marker date="1437479215580" expanded="true" signature="14894:15091" placeholder="{&quot;verticalLines&quot;: true...}" />
               </folding>
             </state>
           </provider>
@@ -75,6 +105,7 @@
       <list>
         <option value="Html5" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -84,12 +115,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/ui/css/icheck/flat/flat.css" />
         <option value="$PROJECT_DIR$/ui/css/icheck/flat/green.css" />
         <option value="$PROJECT_DIR$/ui/css/codeGenerator.css/form.css" />
         <option value="$PROJECT_DIR$/ui/css/codeGenerator/form.css" />
+        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/ui/codeGenerator.html" />
+        <option value="$PROJECT_DIR$/ui/js/code_generator/code_generation.js" />
+        <option value="$PROJECT_DIR$/ui/css/code_generator/code-generator-form.css" />
+        <option value="$PROJECT_DIR$/ui/codeGenerator.php" />
       </list>
     </option>
   </component>
@@ -161,6 +195,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="monitoring-software-interns" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="monitoring-software-interns" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="monitoring-software-interns" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="monitoring-software-interns" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="backEnd" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -180,6 +246,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\test\monitoring-software-interns\ui" />
       <recent name="C:\xampp\htdocs\test\monitoring-software-interns" />
     </key>
   </component>
@@ -225,10 +292,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="7" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25240642" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25240642" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -359,16 +426,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/codeGenerator.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.7384615">
-          <caret line="159" column="26" selection-start-line="159" selection-start-column="26" selection-end-line="159" selection-end-column="26" />
-          <folding>
-            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="40.566666">
@@ -377,11 +434,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ui/js/icheck/icheck.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/css/code_generator/code-generator-form.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5294118">
+          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28299645">
-          <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+        <state vertical-scroll-proportion="-8.5">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/codeGenerator.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-42.984615">
+          <caret line="208" column="78" selection-start-line="208" selection-start-column="78" selection-end-line="208" selection-end-column="78" />
+          <folding>
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/codeGenerator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30083233">
+          <caret line="195" column="0" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
+          <folding>
+            <marker date="1437479215580" expanded="true" signature="9868:9946" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="10015:11512" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="10065:11010" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="10121:10889" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="10259:10528" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="10303:10356" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="10303:10489" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="10580:10854" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="10624:10677" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="10624:10815" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="11113:11483" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="11199:11452" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="11620:11644" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="11620:11937" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="11647:11878" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="11686:11859" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="12095:12301" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="12189:12199" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="13089:13178" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="13855:15091" placeholder="..." />
+            <marker date="1437479215580" expanded="true" signature="13891:15091" placeholder="{...}" />
+            <marker date="1437479215580" expanded="true" signature="13901:13966" placeholder="//..." />
+            <marker date="1437479215580" expanded="true" signature="14378:14414" placeholder="[...]" />
+            <marker date="1437479215580" expanded="true" signature="14416:15091" placeholder="{...}" />
+            <marker date="1437479215580" expanded="true" signature="14438:14874" placeholder="{&quot;shadowSize&quot;: 2...}" />
+            <marker date="1437479215580" expanded="true" signature="14463:14546" placeholder="{&quot;show&quot;: false...}" />
+            <marker date="1437479215580" expanded="true" signature="14573:14722" placeholder="{&quot;show&quot;: true...}" />
+            <marker date="1437479215580" expanded="true" signature="14748:14829" placeholder="{&quot;radius&quot;: 0...}" />
+            <marker date="1437479215580" expanded="true" signature="14894:15091" placeholder="{&quot;verticalLines&quot;: true...}" />
+          </folding>
         </state>
       </provider>
     </entry>

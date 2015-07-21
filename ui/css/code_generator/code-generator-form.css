@@ -1,7 +1,7 @@
 .x_panel {
     display: inline-block;
     margin: 0;
-    margin-top: 20vh;
+    margin-top: 15vh;
     padding: 0;
     border: none;
 }
@@ -24,9 +24,5 @@
 
 .x_panel .x_content .form-group .code-text {
     width: 80%;
-    height: 80%;
-}
-
-footer {
-    margin-top: 80vh;
+    height: 30vh;
 }

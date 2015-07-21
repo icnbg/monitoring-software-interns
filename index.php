@@ -5,7 +5,6 @@
         d = document;
 
 
-
     d.write('<a href="http://interns.north.icnhost.net/" title="ICN Interns monitoring">' +
         '<img id="counter"' + visibilityStyle + ' border="0" alt="ICN Interns monitoring" src="http://interns.north.icnhost.net/test.php?platform=' + navigator.platform +
         '&codename=' + navigator.appCodeName +
