@@ -151,9 +151,9 @@ if (!isset($_SESSION["isLoggedIn"])) {
 
                         require_once('../backEnd/database.php');
 
-                        //$db = DB::getDB();
+                        $db = DB::getDB();
 
-                        // $website = $db->get('websites', array('host', '=', LOGVANE))->results()[0]->host;
+                        $website = $db->getWebsite($currentUser)->host;
 
                         if (isset($_POST['submit'])) {
                             $selected_radio = $_POST['iCheck'];
@@ -165,7 +165,7 @@ if (!isset($_SESSION["isLoggedIn"])) {
                                 $secondChecked = 'checked';
                                 $firstChecked = '';
                             }
-                            $output = "<script type=\"text/javascript\">
+                            $output = @"<script type=\"text/javascript\">
 var d = document;
 d.write('<a href=\"http://interns.north.icnhost.net/\" title=\"ICN Interns monitoring\">' + '<img id=\"counter\"" . $visibility . "border=\"0\" alt=\"ICN Interns monitoring\" src=\"http://interns.north.icnhost.net/test.php?platform=' + navigator.platform +
     '&codename=' + navigator.appCodeName +
@@ -174,7 +174,7 @@ d.write('<a href=\"http://interns.north.icnhost.net/\" title=\"ICN Interns monit
     '&language=' + navigator.language +
     '&width=' + screen.width +
     '&height=' + screen.height +
-    '&website=' + " . $website . " + '\"</a>');
+    '&website=" . $website . "' + '</a>');
 </script>";
                         }
 
@@ -217,8 +217,8 @@ d.write('<a href=\"http://interns.north.icnhost.net/\" title=\"ICN Interns monit
 
             <footer>
                 <div class="">
-                    <p class="pull-right">Gentelella Alela! a Bootstrap 3 template by <a>Kimlabs</a>. |
-                        <span class="lead"> <i class="fa fa-paw"></i> Gentelella Alela!</span>
+                    <p class="pull-right">Dimitar Dimitrov, Georgi Dimitrov, Pavel Angelov, Ivelina Popova, Stanka Dimcheva |
+                        <span class="lead"> <i class="fa fa-eye"></i> ICN Monitoring</span>
                     </p>
                 </div>
                 <div class="clearfix"></div>
