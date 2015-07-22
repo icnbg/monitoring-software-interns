@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
 
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <link href="fonts/css/font-awesome.min.css" rel="stylesheet">
