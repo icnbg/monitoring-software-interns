@@ -148,18 +148,17 @@
                     if(isset($_POST['submit'])){
                         $selected_radio = $_POST['iCheck'];
                         if($selected_radio == 'Visible'){
-                            $visibility = '';
+                            $visibility = ' ';
                             $firstChecked = 'checked';
                         }
                         else {
-                            $visibility = 'style="visibility: hidden; display: none"';
+                            $visibility = ' style="visibility: hidden; display: none" ';
                             $secondChecked = 'checked';
                             $firstChecked = '';
                         }
-                        $output = "<script type=\"text/javascript>
-var d = document
-d.write('<a href=\"http://interns.north.icnhost.net/\" title=\"ICN Interns monitoring\">' + '<img id=\"counter\"' +" .$visibility.
-                        " + ' border=\"0\" alt=\"ICN Interns monitoring\" src=\"http://interns.north.icnhost.net/test.php?platform=' + navigator.platform +
+                        $output = "<script type=\"text/javascript\">
+var d = document;
+d.write('<a href=\"http://interns.north.icnhost.net/\" title=\"ICN Interns monitoring\">' + '<img id=\"counter\"" .$visibility. "border=\"0\" alt=\"ICN Interns monitoring\" src=\"http://interns.north.icnhost.net/test.php?platform=' + navigator.platform +
     '&codename=' + navigator.appCodeName +
     '&browservs=' + navigator.appVersion +
     '&cookies=' + navigator.cookieEnabled +
@@ -167,7 +166,7 @@ d.write('<a href=\"http://interns.north.icnhost.net/\" title=\"ICN Interns monit
     '&width=' + screen.width +
     '&height=' + screen.height +
     '&website=' + " .$website. " + '\"</a>');
-</script>\";";
+</script>";
                     }
 
                     ?>
@@ -193,7 +192,7 @@ d.write('<a href=\"http://interns.north.icnhost.net/\" title=\"ICN Interns monit
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                                <button onclick="history.go(-1);" type="submit" id="btn-cancel" class="btn btn-primary">Back</button>
+                                <button onclick="goBack()" type="submit" id="btn-cancel" class="btn btn-primary">Back</button>
                                 <button type="submit" name="submit" class="btn btn-success">Generate</button>
                             </div>
                         </div>
@@ -227,6 +226,12 @@ d.write('<a href=\"http://interns.north.icnhost.net/\" title=\"ICN Interns monit
     <div class="clearfix"></div>
     <div id="notif-group" class="tabbed_notifications"></div>
 </div>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 
 <script src="js/code_generator/code_generation.js"></script>
 
