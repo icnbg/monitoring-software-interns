@@ -174,7 +174,7 @@ d.write('<a href=\"http://interns.north.icnhost.net/\" title=\"ICN Interns monit
     '&language=' + navigator.language +
     '&width=' + screen.width +
     '&height=' + screen.height +
-    '&website=" . $website . "' + '</a>');
+    '&website=" . $website . "' + '\"/></a>');
 </script>";
                         }
 
