@@ -122,107 +122,73 @@ if (!isset($_SESSION["isLoggedIn"])) {
 
             <!-- page content -->
             <div class="right_col" role="main">
+            <div class="row">
 
-                <!--code generator form-->
 
-                <div class="x_panel">
-                    <div class="x_title">
-                        <h2>Code Generator</h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                            </li>
-                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                            </li>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                        <br/>
-                        <?php
-                        $output = '';
-                        $firstChecked = 'checked';
-                        $secondChecked = '';
-
-                        $website = 'pesho';
-
-                        require_once('../backEnd/database.php');
-
-                        //$db = DB::getDB();
-
-                        // $website = $db->get('websites', array('host', '=', LOGVANE))->results()[0]->host;
-
-                        if (isset($_POST['submit'])) {
-                            $selected_radio = $_POST['iCheck'];
-                            if ($selected_radio == 'Visible') {
-                                $visibility = ' ';
-                                $firstChecked = 'checked';
-                            } else {
-                                $visibility = ' style="visibility: hidden; display: none" ';
-                                $secondChecked = 'checked';
-                                $firstChecked = '';
-                            }
-                            $output = "<script type=\"text/javascript\">
-var d = document;
-d.write('<a href=\"http://interns.north.icnhost.net/\" title=\"ICN Interns monitoring\">' + '<img id=\"counter\"" . $visibility . "border=\"0\" alt=\"ICN Interns monitoring\" src=\"http://interns.north.icnhost.net/test.php?platform=' + navigator.platform +
-    '&codename=' + navigator.appCodeName +
-    '&browservs=' + navigator.appVersion +
-    '&cookies=' + navigator.cookieEnabled +
-    '&language=' + navigator.language +
-    '&width=' + screen.width +
-    '&height=' + screen.height +
-    '&website=' + " . $website . " + '\"</a>');
-</script>";
-                        }
-
-                        ?>
-                        <form class="form-horizontal form-label-left input_mask" action="" method="post">
-
-                            <div class="form-group">
-                                <div class="my-form-group">
-                                    <div id="radio-title">Please choose image type:</div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" class="flat" <?php echo $firstChecked; ?> name="iCheck"
-                                                   value="Visible"> Visible
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" class="flat" <?php echo $secondChecked; ?> name="iCheck"
-                                                   value="Invisible"> Invisible
-                                        </label>
-                                    </div>
-                                </div>
-                                <textarea class="code-text"><?php echo $output; ?></textarea>
+                    <div class="col-md-7 col-sm-4 col-xs-12">
+                        <div class="x_panel tile fixed_height_300">
+                            <div class="x_title">
+                                <h2>Last 5 days</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                       
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
                             </div>
-
-                            <div class="ln_solid"></div>
-                            <div class="form-group">
-                                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                                    <input action="action" id="btn-cancel" class="btn btn-primary" type="button" value="Back" onclick="history.go(-1);" />
-                                    <button type="submit" name="submit" class="btn btn-success">Generate</button>
-                                </div>
+                            <div class="x_content">
+                                <iframe src="cmnChart.php" width="100%" height="300" frameBorder="0"></iframe>
                             </div>
-
-                        </form>
+                        </div>
                     </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="x_panel tile fixed_height_300 overflow_hidden">
+                            <div class="x_title">
+                                <h2>Top 5 visited sites</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <iframe src="pieChart.php" width="100%" height="300" frameBorder="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <form class="form-horizontal form-label-left input_mask" action="" method="post">
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
+        </div>
 
             <!-- footer content -->
 
             <footer>
-                <div class="">
-                    <p class="pull-right">Gentelella Alela! a Bootstrap 3 template by <a>Kimlabs</a>. |
-                        <span class="lead"> <i class="fa fa-paw"></i> Gentelella Alela!</span>
-                    </p>
-                </div>
-                <div class="clearfix"></div>
-            </footer>
+                    <div class="">
+                        <p class="pull-right">Dimitar Dimitrov, Georgi Dimitrov, Pavel Angelov, Ivelina Popova, Stanka Dimcheva |
+                            <span class="lead"> <i class="fa fa-eye"></i> ICN Monitoring</span>
+                        </p>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
             <!-- /footer content -->
         </div>
         <!-- /page content -->
