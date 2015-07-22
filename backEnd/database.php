@@ -127,8 +127,21 @@ class DB
         return $this->_results;
     }
 
+    public function result(){
+        return $this->results()[0];
+    }
+
     public function error(){
         return $this->_error;
+    }
+
+    public function getWebsite($host){
+        $user = $this->get("websites", array('host', '=', $host));
+        if(!$user->error()){
+            return $user->result();
+        }else{
+            return false;
+        }
     }
 
     public function count(){
