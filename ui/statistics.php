@@ -15,7 +15,7 @@ if (!isset($_SESSION["isLoggedIn"])) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>ICN Monitoring | Code generator</title>
+        <title>ICN Monitoring | Statistics</title>
 
         <!-- Bootstrap core CSS -->
 
