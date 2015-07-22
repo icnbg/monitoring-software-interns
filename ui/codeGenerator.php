@@ -147,8 +147,6 @@ if (!isset($_SESSION["isLoggedIn"])) {
                         $firstChecked = 'checked';
                         $secondChecked = '';
 
-                        $website = 'pesho';
-
                         require_once('../backEnd/database.php');
 
                         $db = DB::getDB();
@@ -167,7 +165,7 @@ if (!isset($_SESSION["isLoggedIn"])) {
                             }
                             $output = @"<script type=\"text/javascript\">
 var d = document;
-d.write('<a href=\"http://interns.north.icnhost.net/\" title=\"ICN Interns monitoring\">' + '<img id=\"counter\"" . $visibility . "border=\"0\" alt=\"ICN Interns monitoring\" src=\"http://interns.north.icnhost.net/test.php?platform=' + navigator.platform +
+d.write('<a href=\"http://interns.north.icnhost.net/\" title=\"ICN Interns monitoring\">' + '<img id=\"counter\"" . $visibility . "border=\"0\" alt=\"ICN Interns monitoring\" src=\"http://interns.north.icnhost.net/image.php?platform=' + navigator.platform +
     '&codename=' + navigator.appCodeName +
     '&browservs=' + navigator.appVersion +
     '&cookies=' + navigator.cookieEnabled +
