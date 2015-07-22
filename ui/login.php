@@ -103,7 +103,8 @@ echo "<META HTTP-EQUIV=\"refresh\" CONTENT=\"0;URL=index.php\" >";
                     $username = $_POST['username1'];
                     $password = $_POST['password1'];
                     $website = $_POST['website1'];
-                    $status = $db->insert('websites', array('name' => $username, 'password' => $password, 'host' => $website));
+                    $datetime = date("Y-m-d H:i:s");
+                    $status = $db->insert('websites', array('name' => $username, 'password' => $password, 'host' => $website, 'date' => $datetime ));
 					?>
 					<section class="login_content">
 					<p>Registration was successfull!</p>
