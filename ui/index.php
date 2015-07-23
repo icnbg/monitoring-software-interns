@@ -1,9 +1,32 @@
 <?php
+error_reporting(0);
 session_start();
 if (!isset($_SESSION["isLoggedIn"])) {
     echo "<META HTTP-EQUIV=\"refresh\" CONTENT=\"0;URL=login.php\" >";
 } else {
     $currentUser = $_SESSION["isLoggedIn"];
+
+    require_once('../backEnd/database.php');
+    $db = DB::getDB();
+
+    $countAllUsers = $db->query('SELECT * FROM websites')->count();
+
+    $currentDate = date("Y-m-d");
+    $countNewUsers = $db->get('websites', array('date', '=', $currentDate))->count();
+
+    $colors = array("#455C73", "#9B59B6", "#BDC3C7", "#26B99A", "#3498DB", "EFEF26", "D12D21", "500554", "F2B50E", "ED76ED");
+
+    $arrayWithOS = array();
+    $query = DB::getDB()->query("SELECT * FROM visitors WHERE `date` = ?", array($currentDate));
+    foreach ($query->results() as $singleVisitor) {
+        $arrayWithOS[$singleVisitor->platform] += 1;
+    }
+
+    $nameOS = array_keys($arrayWithOS);
+    $countNameOS = count($nameOS);
+
+    
+
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -55,405 +78,358 @@ if (!isset($_SESSION["isLoggedIn"])) {
     <div class="container body">
 
 
-    <div class="main_container">
+        <div class="main_container">
 
-    <div class="col-md-3 left_col">
-        <div class="left_col scroll-view">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
 
-            <div class="navbar nav_title" style="border: 0;">
-                <a href="index.php" class="site_title"><i class="fa fa-eye"></i> <span>ICN Monitoring</span></a>
-            </div>
-            <div class="clearfix"></div>
-
-            <!-- menu prile quick info -->
-            <div class="profile">
-                <div class="profile_info">
-                    <span>Welcome,</span>
-
-                    <h2><?php echo $currentUser; ?></h2>
-                </div>
-            </div>
-            <!-- /menu prile quick info -->
-
-            <br/>
-
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-
-                <div class="menu_section">
-                    <ul class="nav side-menu">
-                        <li><a href="index.php"><i class="fa fa-home"></i> Home <span class="fa"></span></a>
-                        </li>
-                        <li><a href="codeGenerator.php"><i class="fa fa-cogs"></i> Code Generation <span
-                                    class="fa"></span></a>
-                        </li>
-                        <li><a href="statistics.php"><i class="fa fa-pie-chart"></i> Statistics <span class="fa"></span></a>
-                        </li>
-                        <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-            <!-- /sidebar menu -->
-
-        </div>
-    </div>
-
-    <!-- top navigation -->
-    <div class="top_nav">
-
-        <div class="nav_menu">
-            <nav class="" role="navigation">
-                <div class="nav toggle">
-                    <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-                </div>
-
-            </nav>
-        </div>
-
-    </div>
-    <!-- /top navigation -->
-
-
-    <!-- page content -->
-
-
-    <div class="right_col" role="main">
-
-    <!-- top tiles -->
-    <div class="row tile_count">
-        <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-            <div class="left"></div>
-            <div class="right">
-                <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
-
-                <div class="count">2500</div>
-                <span class="count_bottom"><i class="green">4% </i> From last Week</span>
-            </div>
-        </div>
-        <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-            <div class="left"></div>
-            <div class="right">
-                <span class="count_top"><i class="fa fa-clock-o"></i> Average Time</span>
-
-                <div class="count">123.50</div>
-                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
-            </div>
-        </div>
-        <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-            <div class="left"></div>
-            <div class="right">
-                <span class="count_top"><i class="fa fa-user"></i> Total Males</span>
-
-                <div class="count green">2,500</div>
-                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
-        </div>
-        <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-            <div class="left"></div>
-            <div class="right">
-                <span class="count_top"><i class="fa fa-user"></i> Total Females</span>
-
-                <div class="count">4,567</div>
-                <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>
-            </div>
-        </div>
-        <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-            <div class="left"></div>
-            <div class="right">
-                <span class="count_top"><i class="fa fa-user"></i> Total Collections</span>
-
-                <div class="count">2,315</div>
-                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
-        </div>
-        <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-            <div class="left"></div>
-            <div class="right">
-                <span class="count_top"><i class="fa fa-user"></i> Total Connections</span>
-
-                <div class="count">7,325</div>
-                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
-        </div>
-
-    </div>
-    <!-- /top tiles -->
-
-
-    <div class="row">
-
-
-    <div class="col-md-4 col-sm-4 col-xs-12">
-        <div class="x_panel tile fixed_height_320">
-            <div class="x_title">
-                <h2>App Versions</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Settings 1</a>
-                            </li>
-                            <li><a href="#">Settings 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <h4>App Usage across versions</h4>
-
-                <div class="widget_summary">
-                    <div class="w_left w_25">
-                        <span>0.1.5.2</span>
-                    </div>
-                    <div class="w_center w_55">
-                        <div class="progress">
-                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                                 aria-valuemax="100" style="width: 66%;">
-                                <span class="sr-only">60% Complete</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w_right w_20">
-                        <span>123k</span>
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="index.php" class="site_title"><i class="fa fa-eye"></i> <span>ICN Monitoring</span></a>
                     </div>
                     <div class="clearfix"></div>
+
+                    <!-- menu prile quick info -->
+                    <div class="profile">
+                        <div class="profile_info">
+                            <span>Welcome,</span>
+
+                            <h2><?php echo $currentUser; ?></h2>
+                        </div>
+                    </div>
+                    <!-- /menu prile quick info -->
+
+                    <br/>
+
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                                <li><a href="index.php"><i class="fa fa-home"></i> Home <span class="fa"></span></a>
+                                </li>
+                                <li><a href="codeGenerator.php"><i class="fa fa-cogs"></i> Code Generation <span
+                                            class="fa"></span></a>
+                                </li>
+                                <li><a href="statistics.php"><i class="fa fa-pie-chart"></i> Statistics <span
+                                            class="fa"></span></a>
+                                </li>
+                                <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- /sidebar menu -->
+
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+
+                <div class="nav_menu">
+                    <nav class="" role="navigation">
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+
+                    </nav>
                 </div>
 
-                <div class="widget_summary">
-                    <div class="w_left w_25">
-                        <span>0.1.5.3</span>
+            </div>
+            <!-- /top navigation -->
+
+
+            <!-- page content -->
+
+
+            <div class="right_col" role="main">
+
+                <!-- top tiles -->
+                <div class="row tile_count">
+                    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
+                        <div class="left"></div>
+                        <div class="right">
+                            <span class="count_top"><i class="fa fa-pie-chart"></i> Counter</span>
+                            <div class="count green"></div>
+                        </div>
                     </div>
-                    <div class="w_center w_55">
-                        <div class="progress">
-                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                                 aria-valuemax="100" style="width: 45%;">
-                                <span class="sr-only">60% Complete</span>
+                    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
+                        <div class="left"></div>
+                        <div class="right">
+                            <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
+
+                            <div class="count"><?php echo $countAllUsers ?></div>
+                        </div>
+                    </div>
+                    <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
+                        <div class="left"></div>
+                        <div class="right">
+                            <span class="count_top"><i class="fa fa-user"></i> New Users</span>
+
+                            <div class="count"><?php echo $countNewUsers ?></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /top tiles -->
+
+
+                <div class="row">
+
+
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="x_panel tile fixed_height_320">
+                            <div class="x_title">
+                                <h2>App Versions</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Settings 1</a>
+                                            </li>
+                                            <li><a href="#">Settings 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <h4>App Usage across versions</h4>
+
+                                <div class="widget_summary">
+                                    <div class="w_left w_25">
+                                        <span>0.1.5.2</span>
+                                    </div>
+                                    <div class="w_center w_55">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60"
+                                                 aria-valuemin="0"
+                                                 aria-valuemax="100" style="width: 66%;">
+                                                <span class="sr-only">60% Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w_right w_20">
+                                        <span>123k</span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="widget_summary">
+                                    <div class="w_left w_25">
+                                        <span>0.1.5.3</span>
+                                    </div>
+                                    <div class="w_center w_55">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60"
+                                                 aria-valuemin="0"
+                                                 aria-valuemax="100" style="width: 45%;">
+                                                <span class="sr-only">60% Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w_right w_20">
+                                        <span>53k</span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="widget_summary">
+                                    <div class="w_left w_25">
+                                        <span>0.1.5.4</span>
+                                    </div>
+                                    <div class="w_center w_55">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60"
+                                                 aria-valuemin="0"
+                                                 aria-valuemax="100" style="width: 25%;">
+                                                <span class="sr-only">60% Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w_right w_20">
+                                        <span>23k</span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="widget_summary">
+                                    <div class="w_left w_25">
+                                        <span>0.1.5.5</span>
+                                    </div>
+                                    <div class="w_center w_55">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60"
+                                                 aria-valuemin="0"
+                                                 aria-valuemax="100" style="width: 5%;">
+                                                <span class="sr-only">60% Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w_right w_20">
+                                        <span>3k</span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="widget_summary">
+                                    <div class="w_left w_25">
+                                        <span>0.1.5.6</span>
+                                    </div>
+                                    <div class="w_center w_55">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60"
+                                                 aria-valuemin="0"
+                                                 aria-valuemax="100" style="width: 2%;">
+                                                <span class="sr-only">60% Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w_right w_20">
+                                        <span>1k</span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
-                    <div class="w_right w_20">
-                        <span>53k</span>
+
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="x_panel tile fixed_height_320 overflow_hidden">
+                            <div class="x_title">
+                                <h2>Device Usage</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+                                <table class="" style="width:100%">
+                                    <tr>
+                                        <th style="width:37%;">
+                                            <p>Top 5</p>
+                                        </th>
+                                        <th>
+                                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                                <p class="">Device</p>
+                                            </div>
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                <p class="">Progress</p>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <canvas id="canvas1" height="140" width="140"
+                                                    style="margin: 15px 10px 10px 0"></canvas>
+                                        </td>
+                                        <td>
+                                            <table class="tile_info">
+                                                <?php
+                                                $allClicks = 0;
+                                                for($i = 0; $i < $countNameOS; $i++) {
+                                                    $allClicks += $arrayWithOS[$nameOS[$i]];
+                                                }
+
+                                                for ($i = 0; $i < $countNameOS; $i++) {
+                                                    $currentPercent = 100 * ($arrayWithOS[$nameOS[$i]] / $allClicks);
+                                                    $currentPercent = intval($currentPercent);
+                                                    echo "<tr><td><p><i class=\"fa fa-square\" style='color: $colors[$i]'></i>" . $nameOS[$i] . "</p></td><td>$currentPercent%</td></tr>";
+                                                }
+                                                ?>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="x_panel tile fixed_height_320">
+                            <div class="x_title">
+                                <h2>Quick Settings</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Settings 1</a>
+                                            </li>
+                                            <li><a href="#">Settings 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <div class="dashboard-widget-content">
+                                    <ul class="quick-list">
+                                        <li><i class="fa fa-calendar-o"></i><a href="#">Settings</a>
+                                        </li>
+                                        <li><i class="fa fa-bars"></i><a href="#">Subscription</a>
+                                        </li>
+                                        <li><i class="fa fa-bar-chart"></i><a href="#">Auto Renewal</a></li>
+                                        <li><i class="fa fa-line-chart"></i><a href="#">Achievements</a>
+                                        </li>
+                                        <li><i class="fa fa-bar-chart"></i><a href="#">Auto Renewal</a></li>
+                                        <li><i class="fa fa-line-chart"></i><a href="#">Achievements</a>
+                                        </li>
+                                        <li><i class="fa fa-area-chart"></i><a href="#">Logout</a>
+                                        </li>
+                                    </ul>
+
+                                    <div class="sidebar-widget">
+                                        <h4>Profile Completion</h4>
+                                        <canvas width="150" height="80" id="foo" class=""
+                                                style="width: 160px; height: 100px;"></canvas>
+                                        <div class="goal-wrapper">
+                                            <span class="gauge-value pull-left">$</span>
+                                            <span id="gauge-text" class="gauge-value pull-left">3,200</span>
+                                            <span id="goal-text" class="goal-value pull-right">$5,000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- footer content -->
+
+                <footer>
+                    <div class="">
+                        <p class="pull-right">Dimitar Dimitrov, Georgi Dimitrov, Pavel Angelov, Ivelina Popova, Stanka
+                            Dimcheva |
+                            <span class="lead"> <i class="fa fa-eye"></i> ICN Monitoring</span>
+                        </p>
                     </div>
                     <div class="clearfix"></div>
-                </div>
-                <div class="widget_summary">
-                    <div class="w_left w_25">
-                        <span>0.1.5.4</span>
-                    </div>
-                    <div class="w_center w_55">
-                        <div class="progress">
-                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                                 aria-valuemax="100" style="width: 25%;">
-                                <span class="sr-only">60% Complete</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w_right w_20">
-                        <span>23k</span>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="widget_summary">
-                    <div class="w_left w_25">
-                        <span>0.1.5.5</span>
-                    </div>
-                    <div class="w_center w_55">
-                        <div class="progress">
-                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                                 aria-valuemax="100" style="width: 5%;">
-                                <span class="sr-only">60% Complete</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w_right w_20">
-                        <span>3k</span>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="widget_summary">
-                    <div class="w_left w_25">
-                        <span>0.1.5.6</span>
-                    </div>
-                    <div class="w_center w_55">
-                        <div class="progress">
-                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                                 aria-valuemax="100" style="width: 2%;">
-                                <span class="sr-only">60% Complete</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w_right w_20">
-                        <span>1k</span>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-
+                </footer>
+                <!-- /footer content -->
             </div>
+            <!-- /page content -->
+
         </div>
-    </div>
-
-    <div class="col-md-4 col-sm-4 col-xs-12">
-        <div class="x_panel tile fixed_height_320 overflow_hidden">
-            <div class="x_title">
-                <h2>Device Usage</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Settings 1</a>
-                            </li>
-                            <li><a href="#">Settings 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-
-                <table class="" style="width:100%">
-                    <tr>
-                        <th style="width:37%;">
-                            <p>Top 5</p>
-                        </th>
-                        <th>
-                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                <p class="">Device</p>
-                            </div>
-                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                                <p class="">Progress</p>
-                            </div>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <canvas id="canvas1" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
-                        </td>
-                        <td>
-                            <table class="tile_info">
-                                <tr>
-                                    <td>
-                                        <p><i class="fa fa-square blue"></i>IOS </p>
-                                    </td>
-                                    <td>30%</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p><i class="fa fa-square green"></i>Android </p>
-                                    </td>
-                                    <td>10%</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p><i class="fa fa-square purple"></i>Blackberry </p>
-                                    </td>
-                                    <td>20%</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p><i class="fa fa-square aero"></i>Symbian </p>
-                                    </td>
-                                    <td>15%</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p><i class="fa fa-square red"></i>Others </p>
-                                    </td>
-                                    <td>30%</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="col-md-4 col-sm-4 col-xs-12">
-        <div class="x_panel tile fixed_height_320">
-            <div class="x_title">
-                <h2>Quick Settings</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Settings 1</a>
-                            </li>
-                            <li><a href="#">Settings 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <div class="dashboard-widget-content">
-                    <ul class="quick-list">
-                        <li><i class="fa fa-calendar-o"></i><a href="#">Settings</a>
-                        </li>
-                        <li><i class="fa fa-bars"></i><a href="#">Subscription</a>
-                        </li>
-                        <li><i class="fa fa-bar-chart"></i><a href="#">Auto Renewal</a></li>
-                        <li><i class="fa fa-line-chart"></i><a href="#">Achievements</a>
-                        </li>
-                        <li><i class="fa fa-bar-chart"></i><a href="#">Auto Renewal</a></li>
-                        <li><i class="fa fa-line-chart"></i><a href="#">Achievements</a>
-                        </li>
-                        <li><i class="fa fa-area-chart"></i><a href="#">Logout</a>
-                        </li>
-                    </ul>
-
-                    <div class="sidebar-widget">
-                        <h4>Profile Completion</h4>
-                        <canvas width="150" height="80" id="foo" class="" style="width: 160px; height: 100px;"></canvas>
-                        <div class="goal-wrapper">
-                            <span class="gauge-value pull-left">$</span>
-                            <span id="gauge-text" class="gauge-value pull-left">3,200</span>
-                            <span id="goal-text" class="goal-value pull-right">$5,000</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-
-    <!-- footer content -->
-
-    <footer>
-        <div class="">
-            <p class="pull-right">Dimitar Dimitrov, Georgi Dimitrov, Pavel Angelov, Ivelina Popova, Stanka Dimcheva |
-                <span class="lead"> <i class="fa fa-eye"></i> ICN Monitoring</span>
-            </p>
-        </div>
-        <div class="clearfix"></div>
-    </footer>
-    <!-- /footer content -->
-    </div>
-    <!-- /page content -->
-
-    </div>
 
     </div>
 
@@ -600,27 +576,15 @@ if (!isset($_SESSION["isLoggedIn"])) {
 
     <!-- dashbord linegraph -->
     <script>
+
+
         var doughnutData = [
-            {
-                value: 30,
-                color: "#455C73"
-            },
-            {
-                value: 30,
-                color: "#9B59B6"
-            },
-            {
-                value: 60,
-                color: "#BDC3C7"
-            },
-            {
-                value: 100,
-                color: "#26B99A"
-            },
-            {
-                value: 120,
-                color: "#3498DB"
-            }
+            <?php
+
+    for($i = 0; $i < $countNameOS; $i++){
+        echo "{ value: ".json_encode($arrayWithOS[$nameOS[$i]]) . ", color: " . json_encode($colors[$i]).  "},";
+    }
+    ?>
         ];
         var myDoughnut = new Chart(document.getElementById("canvas1").getContext("2d")).Doughnut(doughnutData);
     </script>
@@ -706,6 +670,6 @@ if (!isset($_SESSION["isLoggedIn"])) {
     </body>
 
     </html>
-<?php
+    <?php
 }
 ?>
